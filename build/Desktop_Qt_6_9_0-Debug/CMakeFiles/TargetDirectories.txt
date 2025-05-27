@@ -1,0 +1,9 @@
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/FileSystemReader.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/edit_cache.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/rebuild_cache.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/list_install_components.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/install.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/install/local.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/install/strip.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/FileSystemReader_autogen_timestamp_deps.dir
+/home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/CMakeFiles/FileSystemReader_autogen.dir

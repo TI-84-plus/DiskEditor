@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionopen"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport_File"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <widget class="QMenu" name="menuData_Recovery">
+     <property name="title">
+      <string>Data Recovery</string>
+     </property>
+     <addaction name="actionData_Content_Mode"/>
+     <addaction name="actionMetaData_Mode"/>
+    </widget>
+    <addaction name="actionFile_System_Information"/>
+    <addaction name="separator"/>
+    <addaction name="menuData_Recovery"/>
+    <addaction name="actionBoot_Sector"/>
+    <addaction name="actionInodeTable"/>
+    <addaction name="actionSuper_Block"/>
+    <addaction name="actionGroup_Desctiptor_Table"/>
+    <addaction name="actionBlock_Bitmap"/>
+    <addaction name="actionInode_Bitmap"/>
+    <addaction name="separator"/>
+    <addaction name="actionData_Block"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionopen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionExport_File">
+   <property name="text">
+    <string>Export File</string>
+   </property>
+  </action>
+  <action name="actionFile_System_Information">
+   <property name="text">
+    <string>File System Information</string>
+   </property>
+  </action>
+  <action name="actionData_Content_Mode">
+   <property name="text">
+    <string>Data Content Mode</string>
+   </property>
+  </action>
+  <action name="actionMetaData_Mode">
+   <property name="text">
+    <string>MetaData Mode</string>
+   </property>
+  </action>
+  <action name="actionBoot_Sector">
+   <property name="text">
+    <string>Boot Sector</string>
+   </property>
+  </action>
+  <action name="actionSuper_Block">
+   <property name="text">
+    <string>Super Block</string>
+   </property>
+  </action>
+  <action name="actionGroup_Desctiptor_Table">
+   <property name="text">
+    <string>Group Desctiptor Table</string>
+   </property>
+  </action>
+  <action name="actionBlock_Bitmap">
+   <property name="text">
+    <string>Block Bitmap</string>
+   </property>
+  </action>
+  <action name="actionInode_Bitmap">
+   <property name="text">
+    <string>Inode Bitmap</string>
+   </property>
+  </action>
+  <action name="actionData_Block">
+   <property name="text">
+    <string>Data Block</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionInodeTable">
+   <property name="text">
+    <string>InodeTable</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
