@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InodeTable</class>
- <widget class="QWidget" name="InodeTable">
+ <class>HexView</class>
+ <widget class="QWidget" name="HexView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -28,7 +28,7 @@
      <property name="handleWidth">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,0">
        <property name="spacing">
         <number>0</number>
@@ -36,10 +36,16 @@
        <item>
         <widget class="QComboBox" name="comboBox">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -90,7 +96,7 @@
         <number>0</number>
        </property>
        <widget class="QWidget" name="verticalLayoutWidget">
-        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="8,8">
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -100,7 +106,7 @@
          <item>
           <widget class="QLineEdit" name="lineEdit_3">
            <property name="placeholderText">
-            <string>Search Inode No...</string>
+            <string>Search Hex...</string>
            </property>
            <property name="clearButtonEnabled">
             <bool>true</bool>
@@ -108,39 +114,20 @@
           </widget>
          </item>
          <item>
-          <widget class="QTableWidget" name="tableWidget_3">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>8</verstretch>
-            </sizepolicy>
-           </property>
-           <column>
-            <property name="text">
-             <string>Inode No</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Mod. Time</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Access Time</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Created Time</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Size</string>
-            </property>
-           </column>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit_4"/>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
+           </item>
+           <item>
+            <widget class="QPlainTextEdit" name="plainTextEdit"/>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>

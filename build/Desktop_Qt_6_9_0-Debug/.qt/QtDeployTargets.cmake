@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_FileSystemReader_FILE /home/fiveeght/FileSystemReader/build/Desktop_Qt_6_9_0-Debug/FileSystemReader)
-set(__QT_DEPLOY_TARGET_FileSystemReader_TYPE EXECUTABLE)

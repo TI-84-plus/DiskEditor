@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "inodetable.h"
+#include "HexView.h"
 #include <QDebug>
 #include <QVBoxLayout>
 
@@ -10,7 +10,7 @@ MainWindow::MainWindow(StateMachine *StateManager, QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(this->ui->actionInodeTable, &QAction::triggered, this, &MainWindow::InodeTableTrigger);
+
     this->StateManager = StateManager;
 
     connect(StateManager, &StateMachine::InsertTab, this, &MainWindow::InsertTab);
@@ -26,6 +26,31 @@ MainWindow::MainWindow(StateMachine *StateManager, QWidget *parent)
     this->layout->addWidget(this->TabWidget);
 
     setCentralWidget(central);
+
+    Disk = new DiskIO();
+
+    for(int i = 0; i < this->Disk->Devices.size(); i++) {
+        QString pathStr = QString::fromUtf8(this->Disk->Devices[i]->model);
+        diskList.push_back(pathStr);
+        std::cout << this->Disk->Devices[i]->path << std::endl;
+        QMenu *drive = new QMenu();
+        drive->setTitle(pathStr);
+        ui->actionHexView_1->setMenu(drive);
+        QAction *partition = new QAction(pathStr, this);
+        partition->setObjectName("partition"+QString::number(i));
+        ui->actionHexView_1->menu()->addAction(partition);
+    }
+
+    if(this->ui->actionHexView_1->menu() != nullptr)
+    {
+        for(int i = 0; i <this->ui->actionHexView_1->menu()->actions().count(); i++)
+        {
+            std::cout<<this->ui->actionHexView_1->menu()->actions().count()<<std::endl;
+            QAction *disk = this->ui->actionHexView_1->menu()->actions()[i];
+
+            connect(disk, &QAction::triggered, this, &MainWindow::InodeTableTrigger);
+        }
+    }
 }
 
 
@@ -35,8 +60,11 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::InodeTableTrigger() {
-    InodeTable *inodeWidget = new InodeTable(this->StateManager->Stack);
+    HexView *inodeWidget = new HexView(this->StateManager->Stack);
     this->StateManager->AddState(inodeWidget);
+
+    //Temporary, need to replace
+    inodeWidget->GetCombo()->addItems(diskList);
 }
 
 void MainWindow::InsertTab() {

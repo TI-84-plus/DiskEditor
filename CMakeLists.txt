@@ -23,7 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(FileSystemReader
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        inodetable.h inodetable.cpp inodetable.ui
+        HexView.h HexView.cpp HexView.ui
         statemachine.h statemachine.cpp
         diskio.h diskio.cpp
 

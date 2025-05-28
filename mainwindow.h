@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
 #include "statemachine.h"
+#include "diskio.h"
+#include <QMenu>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,5 +32,7 @@ private:
     QVBoxLayout *layout;
     QWidget *central;
     QTabWidget *TabWidget;
+    DiskIO *Disk;
+    QStringList diskList;
 };
 #endif // MAINWINDOW_H
