@@ -14,12 +14,10 @@ public:
     DiskIO();
     void ReadDisk(std::ifstream *file);
     std::vector<PedDevice*> GetDevices();
-    std::vector<PedPartition*> GetPartitions(std::vector<PedDevice*>);
 
     int GetOS();
 
     std::vector<PedDevice*> Devices;
-    std::vector<PedPartition*> partitions;
     int fd;
 
 };

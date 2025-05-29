@@ -2,7 +2,7 @@
 
 DiskIO::DiskIO() {
 
-    this->GetPartitions(this->GetDevices());
+    GetDevices();
 }
 
 int GetOS() {
@@ -30,27 +30,6 @@ std::vector<PedDevice*> DiskIO::GetDevices() {
     }
     return this->Devices;
 };
-
-
-std::vector<PedPartition*> DiskIO::GetPartitions(std::vector<PedDevice*> Devices) {
-
-    for(int i = 0; i < Devices.size(); i++) {
-
-        std::vector<PedPartition*> partitions;
-
-        PedDisk* disk = ped_disk_new(this->Devices[i]);
-        if(!disk) {
-            std::cout<<"unable to read"<<std::endl;
-        }
-
-        for (PedPartition* part = ped_disk_next_partition(disk ,nullptr); part != nullptr; part = ped_disk_next_partition(disk ,part)) {
-            std::cout<<ped_partition_get_path(part)<<std::endl;
-            partitions.push_back(part);
-        }
-    }
-
-    return partitions;
-}
 
 
 void DiskIO::ReadDisk(std::ifstream *file) {

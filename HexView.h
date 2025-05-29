@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QComboBox>
 #include "ui_HexView.h"
+#include <parted/parted.h>
 
 namespace Ui {
 class HexView;
@@ -16,6 +17,7 @@ class HexView : public QWidget
 public:
     explicit HexView(QWidget *parent = nullptr);
     QComboBox* GetCombo() const { return ui->comboBox; }
+    PedDevice *CurrentDevice;
 
     ~HexView();
 
