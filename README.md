@@ -14,18 +14,21 @@ And its useful in data recovery, and has some limited uses in reverse engineerin
 - proper support for windows.
 - data recovery with 2 distinct modes (Content Data mode and metadata mode).
 - ability to export data.
-  
+
 
 ## Compiliation
   - #### Linux
+    #### Dependencies:
+
       - install Qt libraries and CMake [CMake](https://cmake.org.download/) if you dont already have it:
         ```sh
-        sudo apt install qtbase5-dev qtbase5-dev-tools cmake g++
+        sudo apt-get install qt6-base-dev qt6-scxml-dev
         ```
+    #### Instructions:
       - Clone the repo
         ```sh
         git clone https://github.com/TI-84-plus/DiskEditor.git
-        cd path/to/repo/FileSystemReader
+        cd FileSystemReader/
         ```
       - build using cmake
         ```sh
@@ -36,7 +39,7 @@ And its useful in data recovery, and has some limited uses in reverse engineerin
       - run
         - #### Note: to work properly the application needs root privilage
         ```sh
-        sudo ./Desktop_Qt_6_9_0-Debug/FileSystemReader
+        sudo ./FileSystemReader
         ```
   - #### Windows
       - ##### coming soon... 
