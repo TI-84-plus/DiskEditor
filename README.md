@@ -5,7 +5,7 @@ Disks and partitions. it gives in depth detail about disks and partitions, it sh
 
 ## Uses
 It is widely used in forensic data analysis as well as in recovering corrupted filesystems, partitions or Data
-And its useful in data recovery. 
+And its useful in data recovery, and has some limited uses in reverse engineering. 
 
 ## Features coming soon:
 - Hex view of entire partitions and files.
