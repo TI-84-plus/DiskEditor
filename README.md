@@ -1,7 +1,7 @@
 # Dynamic Disk Editor
 
 Dynamic Disk Editor is a Advanced Disk Editor Application for viewing and editing raw data (sectors) on Physical
-Disks and partitions. it give in depth detail about disks and partitions, it shows the hexdump, byte offset, and memory address of the disk.
+Disks and partitions. it gives in depth detail about disks and partitions, it shows the hexdump, byte offset, and memory address of the disk.
 
 ## Uses
 It is widely used in forensic data analysis as well as in recovering corrupted filesystems, partitions or Data
