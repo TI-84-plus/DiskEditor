@@ -23,7 +23,7 @@ public slots:
 
 
 public:
-    MainWindow(StateMachine *StateManager, QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private:

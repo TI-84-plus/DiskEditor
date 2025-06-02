@@ -1,9 +1,11 @@
 #include "statemachine.h"
 #include <QDebug>
 
-StateMachine::StateMachine() {
-    StateManager = new QStateMachine();
-    Stack = new QStackedWidget();
+StateMachine::StateMachine(QObject *parent, QWidget *StackParent)
+    : QObject(parent)
+{
+    StateManager = new QStateMachine(this);
+    Stack = new QStackedWidget(StackParent);
     Stack->setContentsMargins(0, 0, 0, 0);
 }
 

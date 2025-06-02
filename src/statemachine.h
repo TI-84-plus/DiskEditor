@@ -9,7 +9,7 @@ class StateMachine : public QObject {
 
     Q_OBJECT
 public:
-    StateMachine();
+    StateMachine(QObject *parent = nullptr, QWidget *StackParent = nullptr);
 
     QStackedWidget *Stack;
 

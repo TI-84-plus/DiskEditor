@@ -8,10 +8,9 @@ int main(int argc, char *argv[])
     //Stack needs to call its show member function
     //but first needs to be added as a widget to a QWidget object
     QApplication a(argc, argv);
-    StateMachine *StateManager = new StateMachine();
 
 
-    MainWindow *w = new MainWindow(StateManager);
+    MainWindow *w = new MainWindow();
 
     w->show();
     return a.exec();
