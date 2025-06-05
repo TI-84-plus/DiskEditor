@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "HexView.h"
 #include <QDebug>
 #include <QVBoxLayout>
+#include "HexView.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,33 +28,34 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(central);
 
     Disk = new DiskIO();
-    ui->actionHexView_1->setMenu(Disk->getDiskAction(ui->actionHexView_1));
+    QMenu *menu = new QMenu();
 
-    for(int i = 0; i < ui->actionHexView_1->menu()->actions().size(); i++)
-    {
-        if(this->ui->actionHexView_1->menu() != nullptr)
-        {
-            connect(ui->actionHexView_1->menu()->actions()[i], &QAction::triggered, this, &MainWindow::InodeTableTrigger);
+    ui->actionHexView_1->setMenu(menu);
+    for(int i = 0; i < Disk->Devices.size(); i++) {
+        QString model = QString::fromUtf8(Disk->Devices[i]->model);
+
+        QAction *part = new QAction(Disk->Devices[i]->model);
+        part->setObjectName(Disk->Devices[i]->path);
+        ui->actionHexView_1->menu()->addAction(part);
+        QStringList partitionPaths;
+
+        for(PedPartition* partition : Disk->GetPartitions(Disk->Devices[i])) {
+            QString part_name = QString::fromStdString(Disk->Devices[i]->path + std::to_string(partition->num));
+            //HexView *hexview = this->StateManager->AddState<HexView>();
+            //hexview->GetCombo()combo->addItem(part_name);        }
+            partitionPaths.append(part_name);
         }
+        connect(ui->actionHexView_1->menu()->actions()[i], &QAction::triggered, this, [this, partitionPaths]() {
+            HexView* hexView = this->StateManager->AddState<HexView>();
+            hexView->GetCombo()->addItems(partitionPaths);
+        });
     }
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::InodeTableTrigger() {
-    HexView *inodeWidget = new HexView(this->StateManager->Stack);
-    this->StateManager->AddState(inodeWidget);
-    //std::vector<PedPartition*> *Partition = &this->Disk->partitions;
-    QObject *device = sender();
-    std::string device_model = (device->objectName().toStdString());
-    std::cout<<device_model<<std::endl;
-    int index = std::stoi(std::string(1, device_model.back()));
-    QStringList Partition_list = this->Disk->getPartitions(index, device);
-
-    inodeWidget->GetCombo()->addItems(Partition_list);
 }
 
 void MainWindow::InsertTab() {

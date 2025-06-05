@@ -10,21 +10,25 @@
 #include <parted/parted.h>
 //}
 
+
 class DiskIO {
 public:
     DiskIO();
 
-    QMenu* getDiskAction(QAction *actionHexView);
-    void LoadDevices();
-    QStringList getPartitions(int index, QObject *action);
+    std::vector<PedPartition*> GetPartitions(PedDevice *device);
 
-    int GetOS();
+    void LoadDevices();
+
 
     QStringList Devices_Model;
     QStringList diskList;
 
-    std::vector<PedDevice*>* Devices;
+    std::vector<PedDisk*> Disks;
+    std::vector<PedDevice*> Devices;
 
+private:
+    std::vector<PedPartition*> Partitions;
+    void LoadPartitions(PedDevice *device);
 };
 
 #endif // DISKIO_H

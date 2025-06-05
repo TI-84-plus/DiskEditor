@@ -18,7 +18,6 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public slots:
-    void InodeTableTrigger();
     void InsertTab();
 
 

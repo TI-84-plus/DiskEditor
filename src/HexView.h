@@ -16,8 +16,9 @@ class HexView : public QWidget
 
 public:
     explicit HexView(QWidget *parent = nullptr);
+
     QComboBox* GetCombo() const { return ui->comboBox; }
-    PedDevice *CurrentDevice;
+    void SetCombo(QStringList part_list) {ui->comboBox->addItems(part_list);}
 
     ~HexView();
 
