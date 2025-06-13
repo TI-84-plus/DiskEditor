@@ -6,6 +6,7 @@
 #include "statemachine.h"
 #include "diskio.h"
 #include <QMenu>
+#include "HexDumpState.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

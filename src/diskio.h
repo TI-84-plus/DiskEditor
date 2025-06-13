@@ -17,18 +17,13 @@ public:
 
     std::vector<PedPartition*> GetPartitions(PedDevice *device);
 
-    void LoadDevices();
-
-
-    QStringList Devices_Model;
-    QStringList diskList;
-
     std::vector<PedDisk*> Disks;
     std::vector<PedDevice*> Devices;
 
 private:
     std::vector<PedPartition*> Partitions;
     void LoadPartitions(PedDevice *device);
+    void LoadDevices();
 };
 
 #endif // DISKIO_H

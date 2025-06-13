@@ -1,18 +1,12 @@
 #include "statemachine.h"
 #include <QDebug>
-#include "HexView.h"
+#include "HexDumpState.h"
 
-StateMachine::StateMachine(QObject *parent, QWidget *StackParent)
+StateMachine::StateMachine(QObject *parent)
     : QObject(parent)
 {
-    StateManager = new QStateMachine(this);
-    Stack = new QStackedWidget(StackParent);
+    QWidget *widgetParent = qobject_cast<QWidget*>(parent);
+    Stack = new QStackedWidget(widgetParent);
     Stack->setContentsMargins(0, 0, 0, 0);
 }
-
-void StateMachine::RemoveState() {
-    this->StateManager->removeState(States.back().get());
-
-}
-
 

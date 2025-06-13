@@ -2,7 +2,6 @@
 #include "./ui_mainwindow.h"
 #include <QDebug>
 #include <QVBoxLayout>
-#include "HexView.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-    StateManager = new StateMachine(this, this);
+    StateManager = new StateMachine(this);
 
     connect(StateManager, &StateMachine::InsertTab, this, &MainWindow::InsertTab);
 
@@ -41,22 +40,24 @@ MainWindow::MainWindow(QWidget *parent)
 
         for(PedPartition* partition : Disk->GetPartitions(Disk->Devices[i])) {
             QString part_name = QString::fromStdString(Disk->Devices[i]->path + std::to_string(partition->num));
-            //HexView *hexview = this->StateManager->AddState<HexView>();
-            //hexview->GetCombo()combo->addItem(part_name);        }
             partitionPaths.append(part_name);
         }
         connect(ui->actionHexView_1->menu()->actions()[i], &QAction::triggered, this, [this, partitionPaths]() {
-            HexView* hexView = this->StateManager->AddState<HexView>();
+            HexView *hexView = this->StateManager->PushState<HexView>();
             hexView->GetCombo()->addItems(partitionPaths);
+            hexView->GetCombo()->setCurrentIndex(0);
         });
-    }
 
+        // connect(qobject_cast<HexView*>(this->StateManager->Stack->currentWidget())->GetCombo(),
+        //         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::DiskReader);
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::InsertTab() {
     this->TabWidget->insertTab(this->TabWidget->count(), this->StateManager->Stack->currentWidget(), QString("New Tab"));

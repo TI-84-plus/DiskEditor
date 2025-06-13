@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QComboBox>
-#include "ui_HexView.h"
+#include "ui_HexDumpState.h"
 #include <parted/parted.h>
+#include "diskreader.h"
+#include <iostream>
 
 namespace Ui {
 class HexView;
@@ -19,13 +21,19 @@ public:
 
     QComboBox* GetCombo() const { return ui->comboBox; }
     void SetCombo(QStringList part_list) {ui->comboBox->addItems(part_list);}
+    QString CurrentPartition;
+
+    DiskReader hexdump;
+
 
     ~HexView();
 
 
-
 private:
     Ui::HexView *ui;
+
+private slots:
+    void createhexview();
 };
 
 #endif // HEXVIEW_H
