@@ -5,7 +5,7 @@
 #include <QComboBox>
 #include "ui_HexDumpState.h"
 #include <parted/parted.h>
-#include "diskreader.h"
+#include "rawsector.h"
 #include <iostream>
 
 namespace Ui {
@@ -21,10 +21,9 @@ public:
 
     QComboBox* GetCombo() const { return ui->comboBox; }
     void SetCombo(QStringList part_list) {ui->comboBox->addItems(part_list);}
-    QString CurrentPartition;
+    QStringList CurrentPartition;
 
-    DiskReader hexdump;
-
+    RawSector hexdump;
 
     ~HexView();
 

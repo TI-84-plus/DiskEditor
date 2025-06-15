@@ -12,10 +12,10 @@ HexView::HexView(QWidget *parent)
 
 
 void HexView::createhexview() {
-    //CurrentPartition =
-    std::cout<<CurrentPartition.toStdString()<<std::endl;
-}
 
+    std::cout<<CurrentPartition[ui->comboBox->currentIndex()].toStdString()<<std::endl;
+    hexdump.RawReadSector(CurrentPartition[ui->comboBox->currentIndex()]);
+}
 
 HexView::~HexView()
 {

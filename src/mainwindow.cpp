@@ -44,9 +44,11 @@ MainWindow::MainWindow(QWidget *parent)
         }
         connect(ui->actionHexView_1->menu()->actions()[i], &QAction::triggered, this, [this, partitionPaths]() {
             HexView *hexView = this->StateManager->PushState<HexView>();
+            hexView->CurrentPartition = partitionPaths;
             hexView->GetCombo()->addItems(partitionPaths);
             hexView->GetCombo()->setCurrentIndex(0);
         });
+
 
         // connect(qobject_cast<HexView*>(this->StateManager->Stack->currentWidget())->GetCombo(),
         //         QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::DiskReader);

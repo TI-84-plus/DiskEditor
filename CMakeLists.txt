@@ -26,7 +26,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         src/HexDumpState.h src/HexDumpState.cpp src/HexDumpState.ui
         src/statemachine.h src/statemachine.cpp
         src/diskio.h src/diskio.cpp
-        src/diskreader.h src/diskreader.cpp
+        src/rawsector.h src/rawsector.cpp
+
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FileSystemReader APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
